@@ -14,7 +14,7 @@ It is assumed that the Samsung data is in your working directory before running 
 The files can be obtained by manually downloading and unzipping from: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 
 Or for example by the following method (you can use the file names and structures of your choise):
- ```{r]
+ ```{r}
 if(!file.exists("./GettingAndCleaningData")) dir.create("./GettingAndCleaningData")
 fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
 download.file(fileUrl, destfile = "./Samsungdata.zip")
@@ -69,7 +69,7 @@ See the README.md document for the explanation of how the steps/script works, wi
 1. First we read all the above mentioned files into R and studied their content.
 
 2. Then we combined test & train subject, -activity and -feature data pieces together, keeping test and train data order the same in all merges to keep the data values and their order intact.
-```{r]
+```{r}
 > dim(allsubjects)
 [1] 10299     1
 > dim(allactivities)
@@ -77,6 +77,7 @@ See the README.md document for the explanation of how the steps/script works, wi
 > dim(alldata)
 [1] 10299   561
 ```
+
 3. We extracted the 561 different features from the 'featurenames' into a character vector for column naming purposes.
 
 4. We added these descriptive feature variable names to the datafile (alldata) to make the feature column names understandable, to tell what each column measure is about.
@@ -86,31 +87,34 @@ See the README.md document for the explanation of how the steps/script works, wi
 In tidy data, fixed variables should come first, followed by measured variables, hence added subject and activity information into the beginning.
 
 6. Labelled also the fixed data columns (SubjectID & Activity) with descriptive variable names.
-```{r]
+```{r}
 > comb[1:2, 1:3]
   SubjectID Activity tBodyAcc-mean()-X
 1         2        5         0.2571778
 2         2        5         0.2860267
 ```
 
+
 7. Extracted the data so that only the observations of the mean() and std() were subsetted from the original data set. 
 We conciously narrowed the feature measurements down to mean() and std() measurements leaving meanFreq() and the angle(xxxgravityMean) measurements out. 
 (As per discussions, it is not clear whether they should be in or not so we decided not to include them for this assignment).  
 Hence we ended up having 66 different feature variables in the processed data set + subject and activity.
-```{r]
+```{r}
 > dim(subdata)
 [1] 10299    68
 ```
+
 
 8. Added descriptive activity names for the activities in the 'Activity' column in the data set (see variable description below for values).
 
 9. From the subsetted data set, we created a second, independent tidy data set with the average of each variable _for each activity and each subject_.  
 In the new tidy data set created for our project, each subject has now only one activity for which each feature average is calculated.  
 The processed data set contains now 180 rows and 68 columns.
-```{r]
+```{r}
 > dim(meandata)
 [1] 180  68
 ```
+
 10. Finally we wrote the outcome into a new tidy data set text file which can be used for later data analysis.
 
 ## Processed Data Set description
@@ -131,9 +135,10 @@ The tidy data text file has 180 observations and 68 columns, each column represe
 There are also headings in the text file to identify the columns.
 
 You can read the tidy data file into R by: 
- ```{r]
+ ```{r}
  read.table("tidyDataSet.txt", header=TRUE, check.names = FALSE)
   ```
+
 ## Description of the variables in the processed data set
 
 ### Units
