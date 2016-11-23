@@ -64,7 +64,7 @@ We don't need to manipulate the source data further (no missing/strange values),
 ## Data manipulation tasks performed on the raw data
 
 The following steps were performed to tidy the data up in the order logical to me.   
-See the README.md document for the explanation of how the steps/script works, with some visualization examples.
+See the README.md document for the documentation and working with the script.
 
 1. First we read all the above mentioned files into R and studied their content.
 
