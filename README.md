@@ -26,9 +26,10 @@ This script must be reusable for all users, and since package installation may p
 we decided not to include the package installation function in the script, after all.
 
 You can check if the package exisits, and install it, for example with the following command:
-```{r]
+```{r}
 if(!require(reshape2)) install.packages("reshape2")
 ```
+
 (PS: if you run this command, at the end of the execution, `require` will throw its' warning message of not being able to load the package. The 'run_analysis.R' has the library(reshape2) function to load the package during the script execution.)
 
 ***
@@ -43,9 +44,11 @@ The working directory for the scipt will be the data file directory 'UCI HAR Dat
 working directory properly before running the script in R.
 
 You can run the script by storing it into the same folder with the Samsung data (UCI HAR Dataset folder) and running in R the with following command:
-```{r]
+
+```{r}
 source("run_analysis.R")
 ```
+
 
 ## Description of how the run_analysis.R script works
 
@@ -69,10 +72,12 @@ Finally the script writes the outcome into a new tidy data set text file for lat
 
 ***
 You can read the dataset back into R using:
-```{r]
+```{r}
 read.table("tidyDataSet.txt", header=TRUE, check.names = FALSE) 
 ## check.names=FALSE allows R to keep the parenthesis in the feature variable names also when reading data back
+
 ```
+
 ***
 
 
