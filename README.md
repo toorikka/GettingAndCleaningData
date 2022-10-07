@@ -1,5 +1,5 @@
 # Getting and Cleaning Data 
-## Week 4 project assignment
+## Week 4 project assignment - Coursera project by Johns Hopkins University
 
 This project is about collecting, manipulating and cleaning a data set.
 The goal of this assignment is to prepare tidy data set from a large data set (multiple files) for later analysis.
